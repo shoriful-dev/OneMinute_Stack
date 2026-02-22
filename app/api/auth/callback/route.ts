@@ -1,5 +1,8 @@
+import { db } from '@/db/client';
 import scalekit from '@/lib/scalekit';
 import { NextRequest, NextResponse } from 'next/server';
+import { user as User } from '@/db/schema';
+import { eq } from 'drizzle-orm';
 
 export async function GET(req: NextRequest) {
   const { searchParams } = req.nextUrl;
@@ -34,5 +37,36 @@ export async function GET(req: NextRequest) {
         { status: 500 },
       );
     }
-  } catch (error) {}
+
+    const existing = await db
+      .select()
+      .from(User)
+      .where(eq(User.email, user.email));
+
+    if (existing.length === 0) {
+      await db.insert(User).values({
+        name: user.name,
+        email: user.email,
+        organization_id: organizationId,
+      });
+    }
+
+    const response = NextResponse.redirect(new URL('/', req.url));
+    const userSession = {
+      email: user.email,
+      organization_id: organizationId,
+    };
+
+    response.cookies.set('user_session', JSON.stringify(userSession), {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'lax',
+      path: '/',
+      maxAge: 60 * 60 * 24 * 7, // 7 days
+    });
+    return response;
+  } catch (error) {
+    console.error('Authentication error:', error);
+    return NextResponse.json({ error: 'Authentication failed' }, { status: 500 });
+  }
 }
