@@ -1,6 +1,6 @@
 'use client';
-import { isAuthorized } from "@/lib/isAuthorized";
-import { useEffect, useState } from "react";
+import { isAuthorized } from '@/lib/isAuthorized';
+import { useEffect, useState } from 'react';
 
 export const useUser = () => {
   const [email, setEmail] = useState(null);
@@ -11,9 +11,9 @@ export const useUser = () => {
       const user = await isAuthorized();
       setEmail(user?.email);
       setLoading(false);
-    }
+    };
     fetchUser();
   }, []);
 
   return { email, loading };
-}
+};
