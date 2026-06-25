@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import './globals.css'
+// @ts-ignore: side-effect import for global CSS without type declarations
+import './globals.css';
 import Script from 'next/script';
 const inter = Inter({
   variable: '--font-inter',
@@ -46,4 +47,4 @@ export default function RootLayout({
       </body>
     </html>
   );
-};
+}

@@ -8,7 +8,6 @@ export async function GET() {
     const state = crypto.randomBytes(16).toString('hex');
     (await cookies()).set('sk_state', state, {
       httpOnly: true,
-      secure: true,
       sameSite: 'lax',
       path: '/',
     });
