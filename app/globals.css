@@ -1,6 +1,6 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
-@import "tw-animate-css";
+@import 'tw-animate-css';
 
 @custom-variant dark (&:is(.dark *));
 
@@ -9,7 +9,6 @@ html {
 }
 
 @theme *inline* {
-
   --font-sans: var(--font-inter);
 
   --color-sidebar-ring: var(--sidebar-ring);
@@ -87,37 +86,26 @@ html {
   --radius-3xl: calc(var(--radius) + 12px);
 
   --radius-4xl: calc(var(--radius) + 16px);
-
 }
 
 /* Custom Utilities matching the HTML design */
 
 @keyframes float-gentle {
-
   0%,
-
   100% {
-
     transform: translateY(0);
-
   }
 
   50% {
-
     transform: translateY(-8px);
-
   }
-
 }
 
 .animate-float {
-
   animation: float-gentle 6s ease-in-out infinite;
-
 }
 
 .glass-card {
-
   background: rgba(255, 255, 255, 0.02);
 
   backdrop-filter: blur(12px);
@@ -125,27 +113,21 @@ html {
   border: 1px solid rgba(255, 255, 255, 0.08);
 
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-
 }
 
 /* Hide scrollbar utility */
 
 .no-scrollbar::-webkit-scrollbar {
-
   display: none;
-
 }
 
 .no-scrollbar {
-
   -ms-overflow-style: none;
 
   scrollbar-width: none;
-
 }
 
 :root {
-
   --radius: 0.625rem;
 
   --card: oklch(1 0 0);
@@ -209,11 +191,9 @@ html {
   --background: oklch(1 0 0);
 
   --foreground: oklch(0.145 0 0);
-
 }
 
 .dark {
-
   --background: oklch(0.145 0 0);
 
   --foreground: oklch(0.985 0 0);
@@ -275,27 +255,19 @@ html {
   --sidebar-border: oklch(1 0 0 / 10%);
 
   --sidebar-ring: oklch(0.556 0 0);
-
 }
 
 @layer base {
-
   * {
-
     @apply border-border outline-ring/50;
-
   }
 
   body {
-
     @apply bg-background text-foreground;
-
   }
-
 }
 
 @theme inline {
-
   --radius-sm: calc(var(--radius) - 4px);
 
   --radius-md: calc(var(--radius) - 2px);
@@ -371,5 +343,4 @@ html {
   --color-sidebar-border: var(--sidebar-border);
 
   --color-sidebar-ring: var(--sidebar-ring);
-
 }
