@@ -26,10 +26,7 @@ export async function GET(req: NextRequest) {
     const claims = await scalekit.validateToken(idToken);
 
     const organizationId =
-      (claims as any).organization_id ||
-      (claims as any).org_id ||
-      (claims as any).oid ||
-      null;
+      (claims as any).organization_id || (claims as any).org_id || (claims as any).oid || null;
 
     if (!organizationId) {
       return NextResponse.json(
@@ -38,10 +35,7 @@ export async function GET(req: NextRequest) {
       );
     }
 
-    const existing = await db
-      .select()
-      .from(User)
-      .where(eq(User.email, user.email));
+    const existing = await db.select().from(User).where(eq(User.email, user.email));
 
     if (existing.length === 0) {
       await db.insert(User).values({
