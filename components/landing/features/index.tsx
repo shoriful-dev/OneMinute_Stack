@@ -1,5 +1,4 @@
 import { BookOpen, MessageCircleHeart, ShieldCheck } from 'lucide-react';
-import React from 'react';
 
 const Features = () => {
   return (
