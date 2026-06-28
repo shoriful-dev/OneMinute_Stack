@@ -16,12 +16,12 @@ export async function GET() {
     const options = {
       scopes: ['openid', 'profile', 'email', 'offline_access'],
       state,
-    }
+    };
 
     const authorizationUrl = scalekit.getAuthorizationUrl(redirectUri, options);
     return NextResponse.redirect(authorizationUrl);
   } catch (error) {
-    console.log(error)
+    console.log(error);
     return NextResponse.json({ error: 'Failed to initiate authentication' }, { status: 500 });
   }
 }
