@@ -1,4 +1,5 @@
 'use client';
+
 import { isAuthorized } from '@/lib/isAuthorized';
 import { useEffect, useState } from 'react';
 
