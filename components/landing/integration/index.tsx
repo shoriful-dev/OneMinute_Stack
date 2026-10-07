@@ -77,6 +77,7 @@ const Integration = () => {
                 <br />
                 <span className="text-indigo-400">defer&gt;</span>
               </div>
+              
               <div>
                 &lt;/<span className="text-pink-400">script</span>&gt;
               </div>
