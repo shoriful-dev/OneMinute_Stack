@@ -11,11 +11,13 @@ const Hero = () => {
             Version 1.0.0 available now
           </span>
         </div>
+        
         <h1 className="text-5xl md:text-7xl font-medium tracking-tight text-white mb-6 leading-[1.1]">
           Human-friendly support,
           <br />
           <span className="text-zinc-500">powered by AI.</span>
         </h1>
+        
         <p className="text-lg md:text-lg text-zinc-400 font-light mb-10 max-w-2xl mx-auto leading-relaxed">
           Instantly resolve customer questions with an assistant that reads your
           docs and speaks with empathy. No robotic replies, just answers.
