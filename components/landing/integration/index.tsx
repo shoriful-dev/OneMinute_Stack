@@ -50,6 +50,7 @@ const Integration = () => {
                 <div className="w-3 h-3 rounded-full bg-yellow-500/20 border border-yellow-500/50"></div>
                 <div className="w-3 h-3 rounded-full bg-green-500/20 border border-green-500/50"></div>
               </div>
+              
               <span className="text-xs text-zinc-600 font-mono">
                 index.html
               </span>
